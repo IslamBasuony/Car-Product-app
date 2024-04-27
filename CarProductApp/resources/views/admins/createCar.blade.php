@@ -29,8 +29,8 @@
                 <input type="text" name="category" id="category" required class="inputs">
             </div>
             <div class="form-group">
-                <label for="condition1">condition:</label>
-                <select name="condition1" id="condition1" required class="inputs">
+                <label for="condition">condition:</label>
+                <select name="condition" id="condition" required class="inputs">
                     <option value="new">New</option>
                     <option value="used">Used</option>
                 </select>

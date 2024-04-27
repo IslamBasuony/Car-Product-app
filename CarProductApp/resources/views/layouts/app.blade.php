@@ -25,30 +25,19 @@
 
             <div class="menu">
 
-                <li class="menu--list"><a href="">Home</a></li>
-                <li class="menu--list"><a href={{"admins/about"}}>About</a></li>
+                <li class="menu--list"><a href="{{ route('home') }}"
+                        class="{{ Request::is('home') ? 'active' : '' }}">Home</a></li>
+                        
+                        <li class="menu--list"><a href="{{ url('/admins/about') }}">About</a></li>
 
-                <li class="services menu--list ">
-                    <a href="">list car</a>
 
-                    <ul class="dropdown">
-                        <li class="dropdown_list "><a href="/shop/sedan"><img class="dropdown__list--logo"
-                                    src="../imges/logos/nav_logo/logo_sedan.svg" alt="sedan"> sedan</a></li>
-                        <li class="dropdown_list "><a href="/shop/suv"><img class="dropdown__list--logo"
-                                    src="../imges/logos/nav_logo/logo_suv.svg" alt="suv"> suv</a></li>
-                        <li class="dropdown_list "><a href=""><img class="dropdown__list--logo"
-                                    src="../imges/logos/nav_logo/logo_premume.svg" alt=""> premium</a></li>
-                        <li class="dropdown_list "><a href="./suv.html"><img class="dropdown__list--logo"
-                                    src="../imges/logos/nav_logo/logo_cope.svg" alt="premium"> coupe</a></li>
-                        <li class="dropdown_list "><a href="./sedan.html"><img class="dropdown__list--logo"
-                                    src="../imges/logos/nav_logo/logo_hatchbak.svg" alt="hatchback"> hatchback</a></li>
-                        <li class="dropdown_list "><a href="./suv.html"><img class="dropdown__list--logo"
-                                    src="../imges/logos/nav_logo/logo_crossover.svg" alt="crossover"> crossover</a></li>
-                    </ul>
-                </li>   
+                <li class="services menu--list">
+                    <a href="{{ route('admins.index') }}">list car</a>
+                </li>
+                <li class="menu--list"><a href="{{ url('/admins/service') }}">service</a></li>
+                <li class="menu--list"><a href="{{ url('/admins/about') }}">About</a></li>
+                <li class="menu--list"><a href="{{ url('/admins/contact') }}">Contact</a></li>
 
-                <li class="menu--list"><a href={{"users/service"}}>service</a></li>
-                <li class="menu--list"><a href={{"admins/createCar"}}>Contact</a></li>
 
                 <li>
                     <button class="switch" id="switch">

@@ -11,6 +11,7 @@ class CreateCarController extends Controller
     {
         return view("admins.createCar");
     }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -19,7 +20,7 @@ class CreateCarController extends Controller
             'manufacturing_year' => 'required',
             'color' => 'required',
             'category' => 'required',
-            'condition1' => 'required',
+            'condition' => 'required',
             'body' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
@@ -30,7 +31,7 @@ class CreateCarController extends Controller
         $cars->manufacturing_year = $request->input('manufacturing_year');
         $cars->color = $request->input('color');
         $cars->category = $request->input('category');
-        $cars->condition1 = $request->input('condition1');
+        $cars->condition = $request->input('condition'); 
         $cars->body = $request->input('body');
 
         if ($request->hasFile('image')) {
@@ -42,14 +43,15 @@ class CreateCarController extends Controller
 
         $cars->save();
 
-
         return redirect()->route("admins.index");
     }
+
     public function index()
     {
         $cars = CarModel::all();
-        return view('admins.car', compact('cars'));
+        return view('admins/car', compact('cars'));
     }
+
     public function delete(string $id)
     {
         $cars = CarModel::find($id);
@@ -64,6 +66,7 @@ class CreateCarController extends Controller
         $cars->delete();
         return redirect()->route("admins.index");
     }
+
     public function tabs()
     {
         $cars = CarModel::all();

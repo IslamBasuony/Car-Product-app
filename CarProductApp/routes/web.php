@@ -19,5 +19,11 @@ Route::post('/admins', [CreateCarController::class, "store"])->name("admins.stor
 Route::get('/admins/car', [CreateCarController::class, "index"])->name("admins.index");
 Route::delete('/admins/{car}', [CreateCarController::class, "delete"])->name("admins.delete");
 Route::get('/admins/tabs', [CreateCarController::class, "tabs"])->name("admins.tabs");
-Route::get('/users/service', [HomeController::class, "service"])->name("users.service");
+Route::get('/admins/service', [HomeController::class, "service"])->name("admins.service");
 Route::get('/admins/about', [HomeController::class, "about"])->name("admins.about");
+
+
+
+
+
+
