@@ -1,80 +1,105 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
-    <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@yield('title')</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
+
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+    <nav class="navbar">
 
+        <img class="logo" src="../imges/logos/nav_logo/logoCar.svg" alt="car_logo"></div>
+
+        <ul class="nav-links">
+
+            <input type="checkbox" id="checkbox_toggle" />
+            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+
+            <div class="menu">
+
+                <li class="menu--list"><a href="">Home</a></li>
+                <li class="menu--list"><a href={{"admins/about"}}>About</a></li>
+
+                <li class="services menu--list ">
+                    <a href="">list car</a>
+
+                    <ul class="dropdown">
+                        <li class="dropdown_list "><a href="/shop/sedan"><img class="dropdown__list--logo"
+                                    src="../imges/logos/nav_logo/logo_sedan.svg" alt="sedan"> sedan</a></li>
+                        <li class="dropdown_list "><a href="/shop/suv"><img class="dropdown__list--logo"
+                                    src="../imges/logos/nav_logo/logo_suv.svg" alt="suv"> suv</a></li>
+                        <li class="dropdown_list "><a href=""><img class="dropdown__list--logo"
+                                    src="../imges/logos/nav_logo/logo_premume.svg" alt=""> premium</a></li>
+                        <li class="dropdown_list "><a href="./suv.html"><img class="dropdown__list--logo"
+                                    src="../imges/logos/nav_logo/logo_cope.svg" alt="premium"> coupe</a></li>
+                        <li class="dropdown_list "><a href="./sedan.html"><img class="dropdown__list--logo"
+                                    src="../imges/logos/nav_logo/logo_hatchbak.svg" alt="hatchback"> hatchback</a></li>
+                        <li class="dropdown_list "><a href="./suv.html"><img class="dropdown__list--logo"
+                                    src="../imges/logos/nav_logo/logo_crossover.svg" alt="crossover"> crossover</a></li>
                     </ul>
+                </li>   
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
+                <li class="menu--list"><a href={{"users/service"}}>service</a></li>
+                <li class="menu--list"><a href={{"admins/createCar"}}>Contact</a></li>
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
+                <li>
+                    <button class="switch" id="switch">
+                        <span><i class="fas fa-sun"></i></span>
+                        <span><i class="fas fa-moon"></i></span>
+                    </button>
+                </li>
+            </div>
+        </ul>
+    </nav>
+    <div class="stars-container">
+        <div class="stars">
+        </div>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+        @yield('content')
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
+        <footer>
+            <div class="footer">
+                <div class="footer_card">
+                    <div class="footer_logo">
+                        <img class="footer_info--list--child" src="../imges/logos/nav_logo/logoCar.svg" alt="car_logo">
+                    </div>
+                    <div class="footer_info">
+                        <div>
+                            <ul class="footer_info--list">
+                                <h4 class="footer_info--list--title"><a href="/">car list </a> </h4>
+                                <li class="footer_info--list--child"><a href="./sedan.html">sedan </a> </li>
+                                <li class="footer_info--list--child"><a href="./suv.html"> suv</a> </li>
+                                <li class="footer_info--list--child"><a href="./sedan.html"> premium</a> </li>
+                                <li class="footer_info--list--child"><a href="./suv.html">coupe </a> </li>
+                                <li class="footer_info--list--child"><a href="./sedan.html">hatchback </a> </li>
+                                <li class="footer_info--list--child"><a href="./suv.html"> crossover</a> </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="footer_info--list">
+                                <h4 class="footer_info--list--title"><a href="./service.html">service </a> </h4>
+                                <li class="footer_info--list--child"><a href="/"> to repair</a> </li>
+                                <li class="footer_info--list--child"><a href="/">maintenance </a> </li>
+                                <li class="footer_info--list--child"><a href="/">accidents </a> </li>
+                                <li class="footer_info--list--child"><a href="/"> Change oil</a> </li>
+                                <li class="footer_info--list--child"><a href="/">external faults </a> </li>
+                                <li class="footer_info--list--child"><a href="/"> customers service</a> </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </nav>
+        </footer>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+        <script src="{{ asset('js/dynamic.js') }}"></script>
 </body>
+
 </html>

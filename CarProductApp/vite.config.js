@@ -5,14 +5,9 @@ import vue from '@vitejs/plugin-vue';
 export default defineConfig({
     plugins: [
         laravel({
-            input: [
-                'resources/ts/app.tsx',
-            ],
+            input: ['resources/ts/app.tsx'],
             refresh: true,
-
-            
         }),
-
         vue({
             template: {
                 transformAssetUrls: {
@@ -22,13 +17,9 @@ export default defineConfig({
             },
         }),
     ],
-    plugins: [
-        laravel(['resources/ts/app.tsx']),
-    ],
     resolve: {
         alias: {
             '@': '/resources/ts',
         },
     },
-    
 });
