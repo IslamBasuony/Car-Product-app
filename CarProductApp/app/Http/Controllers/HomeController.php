@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CarModel;
+use App\Http\Controllers\CreateCarController;
 
 use Illuminate\Http\Request;
 
@@ -47,8 +48,8 @@ class HomeController extends Controller
                 $activeTab = 'crossover';
                 break;
             }
-            return view('home');
         }
+        return view('home');
     }
     public function service()
     {
