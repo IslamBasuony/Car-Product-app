@@ -246,21 +246,6 @@ input[type="checkbox"] {
 
 /* carosel of head => section one */
 
-.gallary {
-    /* margin-top: 4rem;
-  display: grid;
-	grid-template-columns: repeat(8, 90vw);
-	grid-template-rows: 1fr;
-	grid-column-gap: 2rem;
-	grid-row-gap: 1rem;
-	overflow-x: scroll;
-	height: 98vh; */
-    /* scroll-snap-type: both mandatory;
-  scroll-padding: 1rem;
-  scrollbar-color: var(--bg-color);
-  animation-name: right;
-  animation-duration: 2s; */
-}
 .imge_faster {
     margin-top: 3rem;
     width: 55%;
