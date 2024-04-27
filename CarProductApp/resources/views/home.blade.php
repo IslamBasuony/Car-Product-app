@@ -28,7 +28,7 @@
 
     <article class="">
 
-        {{-- <div class="logos">
+        <div class="logos">
             <ul>
                 <li class="{{ $activeTab == 'sedan' ? 'show' : '' }} tabs"><a href="#sedan"
                         onclick="showTab('sedan')">sedan</a></li>
@@ -66,7 +66,7 @@
             <div id="crossover" class="tab-content {{ $activeTab == 'crossover' ? 'show' : '' }}">
                 @include('tab_content', ['body' => 'crossover'])
             </div>
-    </article> --}}
+    </article>
 
 
     <!-- start section -->

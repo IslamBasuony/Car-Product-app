@@ -49,7 +49,7 @@ class HomeController extends Controller
                 break;
             }
         }
-        return view('home');
+        return view('home' , compact("cars", 'activeTab'));
     }
     public function service()
     {

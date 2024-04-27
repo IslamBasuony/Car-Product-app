@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CreateCarController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -9,13 +10,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Auth::routes();
+Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/auth/passwords/login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('/auth/passwords/login', [LoginController::class, 'login']);
-Route::post('/auth/passwords/logout', [LoginController::class, 'logout'])->name('logout');
-
-Route::get('/auth/passwords/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
-Route::post('/auth/passwords/register', [RegisterController::class, 'register']);
+Route::get('/admins/createCar', [CreateCarController::class, "create"])->name("admins.createCar");
+Route::post('/admins', [CreateCarController::class, "store"])->name("admins.store");
+Route::get('/admins/car', [CreateCarController::class, "index"])->name("admins.index");
+Route::delete('/admins/{car}', [CreateCarController::class, "delete"])->name("admins.delete");
+Route::get('/admins/tabs', [CreateCarController::class, "tabs"])->name("admins.tabs");
+Route::get('/users/service', [HomeController::class, "service"])->name("users.service");
+Route::get('/admins/about', [HomeController::class, "about"])->name("admins.about");
