@@ -3,7 +3,7 @@
 
 
 @section('content')
-<form class="form" action="{{route("admins.store")}}" method="post" enctype="multipart/form-data">
+<form class="form" action="{{route("cars.store")}}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="col">
         <fieldset class="form-caunt">

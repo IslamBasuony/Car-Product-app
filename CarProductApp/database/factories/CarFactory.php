@@ -15,14 +15,14 @@ class CarFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
-            'price' => $this->faker->randomDigitNotNull(),
-            'manufacturing_year' => $this->faker->year(),
-            'color' => $this->faker->hexColor(),
-            'category' => $this->faker->word(),
-            'condition' => $this->faker->randomElement(['new', 'used']),
-            'body' => $this->faker->word(),
-            'image' => $this->faker->imageUrl(640, 480, 'cars', true),
+            'name' => fake()->name(),
+            'price' => fake()->randomDigitNotNull(),
+            'manufacturing_year' => fake()->year(),
+            'color' => fake()->hexColor(),
+            'category' => fake()->word(),
+            'condition' => fake()->randomElement(['new', 'used']),
+            'body' => fake()->word(),
+            'image' => fake()->imageUrl(640, 480, 'cars', true),
         ];
     }
 }

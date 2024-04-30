@@ -15,80 +15,96 @@
 <body>
 
     <nav class="navbar">
+        <img class="logo" src="../imges/logos/nav_logo/logoCar.svg" alt="car_logo">
 
-        <img class="logo" src="../imges/logos/nav_logo/logoCar.svg" alt="car_logo"></div>
-
-        <ul class="nav-links">
-
-            <input type="checkbox" id="checkbox_toggle" />
-            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
-
-            <div class="menu">
-
-                <li class="menu--list"><a href="{{ route('home') }}"
-                        class="{{ Request::is('home') ? 'active' : '' }}">Home</a></li>
-                        
-                        <li class="menu--list"><a href="{{ url('/admins/about') }}">About</a></li>
-
-
-                <li class="services menu--list">
-                    <a href="{{ route('admins.index') }}">list car</a>
-                </li>
-                <li class="menu--list"><a href="{{ url('/admins/service') }}">service</a></li>
-                <li class="menu--list"><a href="{{ url('/admins/about') }}">About</a></li>
-                <li class="menu--list"><a href="{{ url('/admins/contact') }}">Contact</a></li>
-
-
-                <li>
-                    <button class="switch" id="switch">
-                        <span><i class="fas fa-sun"></i></span>
-                        <span><i class="fas fa-moon"></i></span>
-                    </button>
-                </li>
-            </div>
-        </ul>
+        @if (Route::has('login'))
+            @auth
+                <ul class="nav-links">
+                    <div class="menu">
+                        <li class="menu--list"><a href="{{ route('home') }}"
+                                class="{{ Request::is('home') ? 'active' : '' }}">Home</a></li>
+                        <li class="menu--list"><a href="{{ route('cars.about') }}">About</a></li>
+                        <li class="menu--list"><a href="{{ route('cars.service') }}">Service</a></li>
+                        <li class="menu--list"><a href="{{ route('cars.create') }}">create</a></li>
+                        <li class="menu--list"><a href="{{ route('cars.index') }}">Service</a></li>
+                        {{-- <li class="menu--list"><a href="{{ route('cars.show') }}">show</a></li> --}}
+                        <li>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                        <li class="menu--list"><button class="btn icon btn-log">logout</button></li>
+                        </form>
+                        </li>
+                    </div>
+                </ul>
+            @else
+                <ul class="nav-links">
+                    <div class="menu">
+                        <li class="menu--list">
+                            <a href="{{ route('login') }}" class="">
+                                Log in
+                            </a>
+                        </li>
+                        @if (Route::has('register'))
+                            <li class="menu--list">
+                                <a href="{{ route('register') }}"
+                                    class="">
+                                    Register
+                                </a>
+                            </li>
+                        @endif
+                        <button class="switch" id="switch">
+                            <span><i class="fas fa-sun"></i></span>
+                            <span><i class="fas fa-moon"></i></span>
+                        </button>
+                    </div>
+                </ul>
+            @endauth
+        @endif
     </nav>
+
     <div class="stars-container">
         <div class="stars">
         </div>
 
-        @yield('content')
+        @yield('content');
 
-        <footer>
-            <div class="footer">
-                <div class="footer_card">
-                    <div class="footer_logo">
-                        <img class="footer_info--list--child" src="../imges/logos/nav_logo/logoCar.svg" alt="car_logo">
+    
+
+    <footer>
+        <div class="footer">
+            <div class="footer_card">
+                <div class="footer_logo">
+                    <img class="footer_info--list--child" src="../imges/logos/nav_logo/logoCar.svg" alt="car_logo">
+                </div>
+                <div class="footer_info">
+                    <div>
+                        <ul class="footer_info--list">
+                            <h4 class="footer_info--list--title"><a href="#">Car List</a></h4>
+                            <li class="footer_info--list--child"><a href="./sedan.html">Sedan</a></li>
+                            <li class="footer_info--list--child"><a href="./suv.html">SUV</a></li>
+                            <li class="footer_info--list--child"><a href="./sedan.html">Premium</a></li>
+                            <li class="footer_info--list--child"><a href="./suv.html">Coupe</a></li>
+                            <li class="footer_info--list--child"><a href="./sedan.html">Hatchback</a></li>
+                            <li class="footer_info--list--child"><a href="./suv.html">Crossover</a></li>
+                        </ul>
                     </div>
-                    <div class="footer_info">
-                        <div>
-                            <ul class="footer_info--list">
-                                <h4 class="footer_info--list--title"><a href="/">car list </a> </h4>
-                                <li class="footer_info--list--child"><a href="./sedan.html">sedan </a> </li>
-                                <li class="footer_info--list--child"><a href="./suv.html"> suv</a> </li>
-                                <li class="footer_info--list--child"><a href="./sedan.html"> premium</a> </li>
-                                <li class="footer_info--list--child"><a href="./suv.html">coupe </a> </li>
-                                <li class="footer_info--list--child"><a href="./sedan.html">hatchback </a> </li>
-                                <li class="footer_info--list--child"><a href="./suv.html"> crossover</a> </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <ul class="footer_info--list">
-                                <h4 class="footer_info--list--title"><a href="./service.html">service </a> </h4>
-                                <li class="footer_info--list--child"><a href="/"> to repair</a> </li>
-                                <li class="footer_info--list--child"><a href="/">maintenance </a> </li>
-                                <li class="footer_info--list--child"><a href="/">accidents </a> </li>
-                                <li class="footer_info--list--child"><a href="/"> Change oil</a> </li>
-                                <li class="footer_info--list--child"><a href="/">external faults </a> </li>
-                                <li class="footer_info--list--child"><a href="/"> customers service</a> </li>
-                            </ul>
-                        </div>
+                    <div>
+                        <ul class="footer_info--list">
+                            <h4 class="footer_info--list--title"><a href="#">Service</a></h4>
+                            <li class="footer_info--list--child"><a href="/">To Repair</a></li>
+                            <li class="footer_info--list--child"><a href="/">Maintenance</a></li>
+                            <li class="footer_info--list--child"><a href="/">Accidents</a></li>
+                            <li class="footer_info--list--child"><a href="/">Change Oil</a></li>
+                            <li class="footer_info--list--child"><a href="/">External Faults</a></li>
+                            <li class="footer_info--list--child"><a href="/">Customer Service</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </footer>
+        </div>
+    </footer>
 
-        <script src="{{ asset('js/dynamic.js') }}"></script>
+    <script src="{{ asset('js/dynamic.js') }}"></script>
 </body>
 
 </html>

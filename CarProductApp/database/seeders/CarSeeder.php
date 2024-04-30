@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\CarModel;
+use App\Models\Car;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -16,7 +16,7 @@ class CarSeeder extends Seeder
      */
     public function run(): void
     {
-        CarModel::factory()->count(6)->create();
+        Car::factory()->count(6)->create();
     }
 }
 

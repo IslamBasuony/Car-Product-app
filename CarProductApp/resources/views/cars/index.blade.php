@@ -17,7 +17,7 @@
                     <p>Condition: <b>{{ $car->condition }} </b></p>
                     <p>Body: <b>{{ $car->body }} </b></p>
                     <button class='btn-buy'>Buying</button>
-                    <form action="{{ route('admins.delete', $car->id) }}" method="POST"
+                    <form action="{{ route('cars.destroy', $car->id) }}" method="POST"
                         onsubmit="return confirm('Are you sure you want to delete this Car?')">
                         @csrf
                         @method('delete')

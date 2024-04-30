@@ -7,6 +7,7 @@
                 <img src="{{ asset('images/' . $car->image) }}" alt="Product Image" class="card_img">
                 <div class="main-active close">
                     <div class="info-car">
+                        <p>name: <b>{{ $car->name }}</b></p>
                         <p>Price: <b>{{ $car->price }}</b></p>
                         <p>Year: <b>{{ $car->manufacturing_year }}</b></p>
                         <p>Color: <b>{{ $car->color }}</b></p>

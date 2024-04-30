@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CarModel;
+use App\Models\Car;
 use App\Http\Controllers\CreateCarController;
 
 use Illuminate\Http\Request;
@@ -26,7 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $cars = CarModel::all();
+        $cars = Car::all();
         $activeTab = null;
         foreach ($cars as $car) {
             if ($car->body == 'sedan') {
@@ -53,11 +53,11 @@ class HomeController extends Controller
     }
     public function service()
     {
-        return view("users.service");
+        return view("Cars.service");
     }
     public function about()
     {
-        return view("admins.about");
+        return view("Cars.about");
     }
     public function contact()
     {
