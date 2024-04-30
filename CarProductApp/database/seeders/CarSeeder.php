@@ -19,3 +19,6 @@ class CarSeeder extends Seeder
         CarModel::factory()->count(6)->create();
     }
 }
+
+
+
