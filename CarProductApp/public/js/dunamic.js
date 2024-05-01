@@ -22,21 +22,33 @@ icon.forEach(ele => {
 })
 
 // modal 
-const modalBtn = window.document.querySelectorAll(`[data-target-modal]`)
+// const modalBtn = window.document.querySelectorAll(`[data-target-modal]`)
     
 
-if (modalBtn) {
-  modalBtn.forEach((btn)=> {
-    btn.addEventListener('click',()=>{
-      const modalId=btn.getAttribute('data-target-modal')
-      const modalTarget = window.document.querySelector(modalId);
+// if (modalBtn) {
+//   modalBtn.forEach((btn)=> {
+//     btn.addEventListener('click',()=>{
+//       const modalId=btn.getAttribute('data-target-modal')
+//       const modalTarget = window.document.querySelector(modalId);
   
-      modalTarget.classList.remove('hidden')
+//       modalTarget.classList.remove('hidden')
   
-    })
-  })
+//     })
+//   })
   
-}
+// }
+// document.addEventListener('DOMContentLoaded', function() {
+//   var buttons = document.querySelectorAll('.open-modal');
+//   buttons.forEach(function(button) {
+//       button.addEventListener('click', function(event) {
+//           event.preventDefault();
+//           var carId = this.getAttribute('data-car-id');
+//           var modal = document.getElementById(carId);
+//           modal.classList.remove('hidden');
+//       });
+//   });
+//   });
+
 
 const modalClose=window.document.querySelectorAll('[data-target-remove]');
 if (modalClose) {
@@ -88,69 +100,69 @@ if (slider) {
 }
 
 // Dark Mood
-const btnSwitch = document.querySelector("#switch");
+// const btnSwitch = document.querySelector("#switch");
 
-const currentTheme = getTheme() || 'light';
-// 
-// console.log(currentTheme);
+// const currentTheme = getTheme() || 'light';
+// // 
+// // console.log(currentTheme);
 
-setMode(currentTheme)
+// setMode(currentTheme)
 
-function setTheme(theme) {
-  window.localStorage.setItem('theme' , theme)
-}
-setTheme();
+// function setTheme(theme) {
+//   window.localStorage.setItem('theme' , theme)
+// }
+// setTheme();
 
-function setMode(theme) {
-  const bodyEle = window.document.body;
+// function setMode(theme) {
+//   const bodyEle = window.document.body;
   
-  bodyEle.setAttribute('data-theme', theme);
-  // console.log(bodyEle);
-  if (theme === 'dark') {
-    btnSwitch.checked = true;
-    console.log(true);
-    btnSwitch.classList.add('active')
-    const numberOfStars = 75000;
+//   bodyEle.setAttribute('data-theme', theme);
+//   // console.log(bodyEle);
+//   if (theme === 'dark') {
+//     btnSwitch.checked = true;
+//     console.log(true);
+//     btnSwitch.classList.add('active')
+//     const numberOfStars = 75000;
 
-        const createStar = () => {
-            const star = document.createElement("div");
-            star.className = "stars";
-            const duration = Math.random() * 5 + 1;
-            star.style.left = `${Math.random() * window.innerWidth}rem`;
-            star.style.top = `${Math.random() * window.innerHeight}rem`;
-            star.style.animationDuration = `${duration}s, ${duration}s`;
-            star.style.animationDelay = `-${Math.random() * duration}s`;
-            return star;
-        };
+//         const createStar = () => {
+//             const star = document.createElement("div");
+//             star.className = "stars";
+//             const duration = Math.random() * 5 + 1;
+//             star.style.left = `${Math.random() * window.innerWidth}rem`;
+//             star.style.top = `${Math.random() * window.innerHeight}rem`;
+//             star.style.animationDuration = `${duration}s, ${duration}s`;
+//             star.style.animationDelay = `-${Math.random() * duration}s`;
+//             return star;
+//         };
 
-        const starsContainer = document.querySelector(".stars-container");
+//         const starsContainer = document.querySelector(".stars-container");
 
-        for (let i = 0; i < numberOfStars; i++) {
-            starsContainer.appendChild(createStar());
-        }
-  } else{
-    btnSwitch.checked = false;
-    btnSwitch.classList.remove('active')
-    // console.log(false);
-    theme === 'light'
-  }
+//         for (let i = 0; i < numberOfStars; i++) {
+//             starsContainer.appendChild(createStar());
+//         }
+//   } else{
+//     btnSwitch.checked = false;
+//     btnSwitch.classList.remove('active')
+//     // console.log(false);
+//     theme === 'light'
+//   }
   
   
-}
+// }
 
-function getTheme() {
-  return window.localStorage.getItem('theme')
-}
+// function getTheme() {
+//   return window.localStorage.getItem('theme')
+// }
 
 
 
-btnSwitch.addEventListener('click' , ()=>{
-  const theme = btnSwitch.checked ? 'light' :'dark' ;
-  setTheme(theme);
-  setMode(theme);
-  console.log(theme);
-  btnSwitch.classList.toggle('active')
-})
+// btnSwitch.addEventListener('click' , ()=>{
+//   const theme = btnSwitch.checked ? 'light' :'dark' ;
+//   setTheme(theme);
+//   setMode(theme);
+//   console.log(theme);
+//   btnSwitch.classList.toggle('active')
+// })
 
 
 

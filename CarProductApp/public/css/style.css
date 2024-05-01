@@ -734,12 +734,14 @@ input[type="checkbox"] {
     left: 0;
     background-color: rgba(200, 200, 200, 0.8);
 }
+
 .hidden {
     transform: translateY(-100%);
     visibility: hidden;
     z-index: -1;
     opacity: 0;
 }
+
 .mod {
     max-width: 20rem;
     background-color: var(--bg-color);
@@ -748,13 +750,16 @@ input[type="checkbox"] {
     height: 22rem;
     line-height: 1.8rem;
 }
+
 .modal_replace {
     transform: translateY(-35%);
 }
+
 .modal_img {
     width: 100%;
     margin: auto;
 }
+
 .modal_img_photo {
     width: 100%;
 }
@@ -762,6 +767,7 @@ input[type="checkbox"] {
 .modal_title {
     text-align: center;
 }
+
 .modal_btn {
     background-color: var(--bg-card);
     border-radius: 2rem;
@@ -1237,4 +1243,8 @@ label {
 .btn-log{
     font-size: large;
     margin: 0 0;
+}
+.spase{
+    width: 80%;
+    margin: 5rem auto;
 }

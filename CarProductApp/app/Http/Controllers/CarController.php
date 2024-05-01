@@ -21,7 +21,7 @@ class CarController extends Controller
     public function show(Request $request)
     {
         $car = Car::find($request->id);
-        return view('cars.show', compact('car'));
+        return view('cars.show', ["car" => $car]);
     }
     public function store(Request $request)
     {

@@ -21,7 +21,12 @@ class CarFactory extends Factory
             'color' => fake()->hexColor(),
             'category' => fake()->word(),
             'condition' => fake()->randomElement(['new', 'used']),
-            'body' => fake()->word(),
+            'body' => fake()->randomElement([
+                'sedan', 'suv', "Premium",
+                "Coupe",
+                "Hatchback",
+                "Crossover"
+            ]),
             'image' => fake()->imageUrl(640, 480, 'cars', true),
         ];
     }

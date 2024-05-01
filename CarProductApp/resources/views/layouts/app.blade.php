@@ -26,7 +26,7 @@
                         <li class="menu--list"><a href="{{ route('cars.about') }}">About</a></li>
                         <li class="menu--list"><a href="{{ route('cars.service') }}">Service</a></li>
                         <li class="menu--list"><a href="{{ route('cars.create') }}">create</a></li>
-                        <li class="menu--list"><a href="{{ route('cars.index') }}">Service</a></li>
+                        <li class="menu--list"><a href="{{ route('cars.index') }}">cars</a></li>
                         {{-- <li class="menu--list"><a href="{{ route('cars.show') }}">show</a></li> --}}
                         <li>
                             <form method="POST" action="{{ route('logout') }}">
@@ -62,9 +62,9 @@
         @endif
     </nav>
 
-    <div class="stars-container">
+    {{-- <div class="stars-container">
         <div class="stars">
-        </div>
+        </div> --}}
 
         @yield('content');
 
