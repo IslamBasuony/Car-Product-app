@@ -1,6 +1,4 @@
 <div class="control-div">
-
-
     @foreach ($cars as $car)
         @if ($car->body === $body)
             <div class="gallary_app card">
@@ -26,10 +24,11 @@
                 <div class="card_info">
                     <h5>Car Name: <b>{{ $car->name }}</b></h5>
                     <div class="">
-                        <a class="icon">read more</a>
+                        <a class="btn btn_car">read more</a>
                     </div>
                 </div>
             </div>
         @endif
     @endforeach
     </div>
+    

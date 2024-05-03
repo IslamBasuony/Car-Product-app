@@ -1,67 +1,12 @@
 // dropdown
-const dropdownBtn = document.querySelector('.services')
-const dropdown = document.querySelector('.dropdown')
+// const dropdownBtn = document.querySelector('.services')
+// const dropdown = document.querySelector('.dropdown')
 
 
-dropdownBtn.addEventListener('click' , ()=>{
-  console.log(dropdownBtn);
-  dropdown.classList.toggle('block')
-})
-
-// accordion
-
-const acordion = document.querySelector(".card");
-const icon = document.querySelectorAll(".icon");
-
-icon.forEach(ele => {
-    ele.addEventListener('click', function() {
-        
-    ele.parentElement.parentElement.parentElement.children[1].classList.toggle("open")
-
-    })
-})
-
-// modal 
-// const modalBtn = window.document.querySelectorAll(`[data-target-modal]`)
-    
-
-// if (modalBtn) {
-//   modalBtn.forEach((btn)=> {
-//     btn.addEventListener('click',()=>{
-//       const modalId=btn.getAttribute('data-target-modal')
-//       const modalTarget = window.document.querySelector(modalId);
-  
-//       modalTarget.classList.remove('hidden')
-  
-//     })
-//   })
-  
-// }
-// document.addEventListener('DOMContentLoaded', function() {
-//   var buttons = document.querySelectorAll('.open-modal');
-//   buttons.forEach(function(button) {
-//       button.addEventListener('click', function(event) {
-//           event.preventDefault();
-//           var carId = this.getAttribute('data-car-id');
-//           var modal = document.getElementById(carId);
-//           modal.classList.remove('hidden');
-//       });
-//   });
-//   });
-
-
-const modalClose=window.document.querySelectorAll('[data-target-remove]');
-if (modalClose) {
- modalClose.forEach((ele)=>{
-   ele.addEventListener('click', ()=>{
-     const modalRemove =ele.closest('.modal')
-     modalRemove.classList.add('hidden')
- 
-   })
-  })
-  
-}
-
+// dropdownBtn.addEventListener('click' , ()=>{
+//   console.log(dropdownBtn);
+//   dropdown.classList.toggle('block')
+// })
 
  // carosel
 
@@ -191,4 +136,27 @@ function toggleClass(element, classToAdd, classToRemove) {
   }
   element.classList.toggle(classToAdd);
 }
+console.log("eslam");
+
+document.addEventListener('DOMContentLoaded', function() {
+  var buttons = document.querySelectorAll('.open-modal');
+  buttons.forEach(function(button) {
+      button.addEventListener('click', function(event) {
+          event.preventDefault();
+          var carId = this.getAttribute('data-car-id');
+          var modal = document.getElementById(carId);
+          modal.classList.remove('hidden');
+      });
+  });
+});
+const modalClose = window.document.querySelectorAll('[data-target-remove]');
+if (modalClose) {
+  modalClose.forEach((ele) => {
+      ele.addEventListener('click', () => {
+          const modalRemove = ele.closest('.modal');
+          modalRemove.classList.add('hidden');
+      });
+  });
+}
+// esarch data
 

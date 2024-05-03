@@ -19,6 +19,8 @@ Route::get('/cars/about', [HomeController::class, "about"])->name("cars.about");
 Route::get('/cars', [CarController::class, "index"])->name("cars.index");
 Route::get('/cars/create', [CarController::class, "create"])->name("cars.create");
 Route::post('/cars', [CarController::class, "store"])->name("cars.store");
+Route::get('/cars/search', [CarController::class, "search"])->name("cars.search");
+
 Route::get('/cars/tabs', [CarController::class, "tabs"])->name("cars.tabs");
 Route::get('/cars/{car}', [CarController::class, "show"])->name("cars.show");
 Route::delete('/cars/{car}', [CarController::class, "destroy"])->name("cars.destroy");

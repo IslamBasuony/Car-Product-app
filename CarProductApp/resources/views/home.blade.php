@@ -22,7 +22,7 @@
             </ul>
 
         </section>
-        
+
 
     </section>
 
@@ -32,20 +32,19 @@
             <ul>
                 <li class="{{ $activeTab == 'sedan' ? 'show' : '' }} tabs"><a href="#sedan"
                         onclick="showTab('sedan')">sedan</a></li>
-                <li class="{{ $activeTab == 'suv' ? 'show' : '' }} tabs"><a href="#suv"
-                        onclick="showTab('suv')">suv</a>
+                <li class="{{ $activeTab == 'suv' ? 'show' : '' }} tabs"><a href="#suv" onclick="showTab('suv')">suv</a>
                 </li>
-                <li class="{{ $activeTab == 'premium' ? 'show' : '' }} tabs"><a href="#premium"
-                        onclick="showTab('premium')">premium</a></li>
-                <li class="{{ $activeTab == 'coupe' ? 'show' : '' }} tabs"><a href="#coupe"
-                        onclick="showTab('coupe')">coupe</a></li>
-                <li class="{{ $activeTab == 'hatchback' ? 'show' : '' }} tabs"><a href="#hatchback"
-                        onclick="showTab('hatchback')">hatchback</a></li>
-                <li class="{{ $activeTab == 'crossover' ? 'show' : '' }} tabs"><a href="#crossover"
-                        onclick="showTab('crossover')">crossover</a></li>
+                <li class="{{ $activeTab == 'Premium' ? 'show' : '' }} tabs"><a href="#Premium"
+                        onclick="showTab('Premium')">premium</a></li>
+                <li class="{{ $activeTab == 'Coupe' ? 'show' : '' }} tabs"><a href="#Coupe"
+                        onclick="showTab('Coupe')">coupe</a></li>
+                <li class="{{ $activeTab == 'Hatchback' ? 'show' : '' }} tabs"><a href="#Hatchback"
+                        onclick="showTab('Hatchback')">hatchback</a></li>
+                <li class="{{ $activeTab == 'Crossover' ? 'show' : '' }} tabs"><a href="#Crossover"
+                        onclick="showTab('Crossover')">crossover</a></li>
             </ul>
-            
-            
+
+
         </div>
         <section class="">
             <div id="sedan" class="tab-content {{ $activeTab == 'sedan' ? 'show' : '' }}">
@@ -54,17 +53,17 @@
             <div id="suv" class="tab-content {{ $activeTab == 'suv' ? 'show' : '' }}">
                 @include('tab_content', ['body' => 'suv'])
             </div>
-            <div id="premium" class="tab-content {{ $activeTab == 'premium' ? 'show' : '' }}">
-                @include('tab_content', ['body' => 'premium'])
+            <div id="Premium" class="tab-content {{ $activeTab == 'Premium' ? 'show' : '' }}">
+                @include('tab_content', ['body' => 'Premium'])
             </div>
-            <div id="coupe" class="tab-content {{ $activeTab == 'coupe' ? 'show' : '' }}">
-                @include('tab_content', ['body' => 'coupe'])
+            <div id="Coupe" class="tab-content {{ $activeTab == 'Coupe' ? 'show' : '' }}">
+                @include('tab_content', ['body' => 'Coupe'])
             </div>
-            <div id="hatchback" class="tab-content {{ $activeTab == 'hatchback' ? 'show' : '' }}">
-                @include('tab_content', ['body' => 'hatchback'])
+            <div id="Hatchback" class="tab-content {{ $activeTab == 'Hatchback' ? 'show' : '' }}">
+                @include('tab_content', ['body' => 'Hatchback'])
             </div>
-            <div id="crossover" class="tab-content {{ $activeTab == 'crossover' ? 'show' : '' }}">
-                @include('tab_content', ['body' => 'crossover'])
+            <div id="Crossover" class="tab-content {{ $activeTab == 'Crossover' ? 'show' : '' }}">
+                @include('tab_content', ['body' => 'Crossover'])
             </div>
     </article>
 
@@ -78,7 +77,7 @@
                 sedan around the world within the Kia fleet of production cars,
                 and the new generation of it has a very modern design with a youthful,
                 sporty character.</p>
-            <a class="btn icon">read more</a>
+            <a class="btn">read more</a>
         </div>
         <div class="clear"></div>
     </section>
@@ -175,5 +174,38 @@
         </div>
     </section>
     </section>
+    <script>
+        const acordion = document.querySelector(".card");
+        const icon = document.querySelectorAll(".btn_car");
 
+        icon.forEach(ele => {
+            ele.addEventListener('click', function() {
+
+                ele.parentElement.parentElement.parentElement.children[1].classList.toggle("open")
+
+            })
+        })
+        // tabs 
+        function showTab(tabName) {
+            var tabs = document.querySelectorAll('.logos ul li');
+            tabs.forEach(function(tab) {
+                tab.classList.remove('show');
+            });
+
+            var show = document.getElementById(tabName);
+            toggleClass(show, "tab-content", "show");
+
+            var otherTabs = document.querySelectorAll('.tab-content:not(#' + tabName + ')');
+            otherTabs.forEach(function(otherTab) {
+                otherTab.classList.remove('show');
+            });
+        }
+
+        function toggleClass(element, classToAdd, classToRemove) {
+            if (element.classList.contains(classToRemove)) {
+                element.classList.remove(classToRemove);
+            }
+            element.classList.toggle(classToAdd);
+        }
+    </script>
 @endsection

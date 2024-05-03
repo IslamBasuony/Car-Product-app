@@ -54,7 +54,7 @@ class CarController extends Controller
 
         $cars->save();
 
-        return redirect()->route("admins.index");
+        return redirect()->route("cars.index");
     }
     public function update(Request $request, $id)
     {
@@ -71,7 +71,7 @@ class CarController extends Controller
         $Car->save();
 
 
-        return to_route('products.show', ['product' => $id]);
+        return to_route('cars.index', ['Car' => $id]);
     }
     public function destroy($id)
     {
@@ -89,23 +89,22 @@ class CarController extends Controller
         $cars->delete();
         return redirect()->route("cars.index");
     }
-    
-    // public function show($id)
-    // {
-    //     $cars = Car::find($id);
-    //     return view('admin.show', compact('cars'));
-    // }
 
     public function edit($id)
     {
         $cars = Car::find($id);
-        return view('admin.edit', compact('cars'));
+        return view('cars.edit', compact('cars'));
     }
 
     public function search(Request $request)
-    {
+{
+    $searchQuery = $request->get('search');
 
-        $search = $request->get('search');
+    $results = Car::where('name', 'like', '%' . $searchQuery . '%')
+        ->orWhere('body', 'like', '%' . $searchQuery . '%')
+        ->get();
 
-    }
+    return response()->json($results);
+}
+
 }

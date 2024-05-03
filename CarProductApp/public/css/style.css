@@ -5,7 +5,7 @@
     --bg-color: rgb(255, 255, 255);
     --bg-card: white;
     --btn-color: #337ab7;
-    --bg-worning: red;
+    --bg-worning: rgb(209, 35, 35);
     --box-shadow: 0 2px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
@@ -94,9 +94,38 @@ li {
     color: (var(--c-title));
     border: none;
     padding: 0.5rem;
+    margin: 1rem;
     background-color: var(--btn-color);
     text-transform: capitalize;
     box-shadow: var(--box-shadow);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    color: var(--btn-color);
+    background-color: var(--bg-card);
+}
+
+.btn_search{
+    font-size: larger;
+    padding: .5rem 1rem;
+}
+
+.btn_del{
+    color: (var(--c-title));
+    border: none;
+    padding: 0.7rem;
+    margin: 1rem;
+    text-transform: capitalize;
+    box-shadow: var(--box-shadow);
+    border-radius: 5px;
+    background-color: var(--bg-worning);
+    cursor: pointer;
+}
+.btn_del:hover {
+    color: var(--bg-worning);
+    background-color: var(--bg-card);
 }
 /* navbar */
 
@@ -392,18 +421,7 @@ input[type="checkbox"] {
     width: 3rem;
     box-shadow: var(--box-shadow);
 }
-.icon {
-    /* color: var(--c-title); */
-    /* background-color: var(--bg-color); */
-    padding: 0.4rem;
-    margin: 2rem 0;
-    border-radius: 0.4rem;
-    box-shadow: var(--box-shadow);
-}
-.icon:hover {
-    color: var(--btn-color);
-    background-color: var(--c-text);
-}
+
 .close {
     height: 0;
     overflow: hidden;
@@ -549,10 +567,6 @@ input[type="checkbox"] {
 .footer {
     width: 100%;
     background-color: var(--bg-color);
-    /* position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0; */
 }
 
 .footer_card {
@@ -665,58 +679,6 @@ input[type="checkbox"] {
 .about_people--info {
     padding: 1rem;
 }
-/* start page sedan */
-.car {
-    width: 100%;
-    margin: auto;
-    padding-top: 4rem;
-    background-color: var(--bg-color);
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-template-rows: 1fr;
-    grid-column-gap: 1.5rem;
-    grid-row-gap: 1.5rem;
-}
-.car_shops {
-    height: 25vh;
-    position: relative;
-    box-shadow: var(--box-shadow);
-    border-radius: 2rem;
-    overflow: hidden;
-    text-align: center;
-}
-
-.shop_img img {
-    width: 100%;
-    height: 25vh;
-    overflow: hidden;
-}
-.shop_btn {
-    width: 100%;
-    position: absolute;
-    left: 0;
-    transform: translateY(50%);
-    transition: 1s;
-}
-.shop_name {
-    transform: translateY(0);
-}
-.car_shops:hover .shop_btn {
-    transform: translateY(-100%);
-}
-.shop_btn span {
-    display: block;
-    background-color: var(--c-text);
-    cursor: pointer;
-    padding: 0.5rem;
-    margin: 0.5rem;
-    border-radius: 2rem;
-    box-shadow: var(--box-shadow);
-}
-.shop_btn--buying:hover {
-    background-color: var(--bg-color);
-    color: var(--c-text);
-}
 
 /* sec modal */
 .modal {
@@ -734,7 +696,9 @@ input[type="checkbox"] {
     left: 0;
     background-color: rgba(200, 200, 200, 0.8);
 }
-
+.modal_info{
+    padding-top: 5rem;
+}
 .hidden {
     transform: translateY(-100%);
     visibility: hidden;
@@ -746,7 +710,7 @@ input[type="checkbox"] {
     max-width: 20rem;
     background-color: var(--bg-color);
     border-radius: 2rem;
-    padding: 1rem;
+    padding: 3rem;
     height: 22rem;
     line-height: 1.8rem;
 }
@@ -769,7 +733,7 @@ input[type="checkbox"] {
 }
 
 .modal_btn {
-    background-color: var(--bg-card);
+    background-color: var(--btn-color);
     border-radius: 2rem;
     margin-top: 1rem;
     padding: 0.5rem;
@@ -927,16 +891,6 @@ input[type="checkbox"] {
     background-color: var(--bg-color);
 }
 
-.animation-left {
-    position: relative;
-    animation-name: left;
-    animation-duration: 2s;
-}
-.animation-right {
-    position: relative;
-    animation-name: right;
-    animation-duration: 2s;
-}
 
 @keyframes left {
     from {
@@ -972,26 +926,6 @@ input[type="checkbox"] {
     .footer_card {
         width: 100%;
         justify-content: space-evenly;
-    }
-    .car_shops {
-        height: 68vh;
-    }
-    .shop_btn {
-        width: 100%;
-        position: absolute;
-        left: 0;
-        transform: translateY(0%);
-        transition: 1s;
-    }
-    .shop_name {
-        transform: none;
-    }
-    .car_shops:hover .shop_btn {
-        transform: none;
-    }
-
-    .shop_img img {
-        height: 40vh;
     }
     .mod {
         height: 19rem;
@@ -1096,31 +1030,6 @@ input[type="checkbox"] {
     .footer_logo {
         width: fit-content;
     }
-    .contact {
-        width: 100%;
-        background-size: contain;
-    }
-    .contact_info {
-        width: auto;
-        margin: auto;
-        padding: 2rem;
-        position: absolute;
-        top: 8rem;
-        left: 0;
-    }
-    .contact_card {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
-    }
-    .car_shops {
-        height: 38vh;
-    }
-    .shop_img img {
-        height: 25vh;
-    }
 }
 .form {
     width: 400px;
@@ -1222,7 +1131,7 @@ label {
 
 .product-details {
     text-align: center;
-    line-height: 1.7rem;
+    line-height: 2rem;
 }
 .btn-buy {
     background-color: inherit;
